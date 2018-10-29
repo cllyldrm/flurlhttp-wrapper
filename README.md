@@ -1,6 +1,8 @@
 # FlurlHttp Wrapper
 
-[![Build status](https://ci.appveyor.com/api/projects/status/2wc38vjgnkhuojc9?svg=true)](https://ci.appveyor.com/project/cllyldrm/flurlhttpwrapper)
+[![Build status](https://ci.appveyor.com/api/projects/status/s8m2pnkfs5ghkc0l?svg=true)](https://ci.appveyor.com/project/cllyldrm/flurlhttp-wrapper)
+[![flurlhttpwrapper](https://img.shields.io/nuget/v/flurlhttpwrapper.svg?maxAge=3600)](https://www.nuget.org/packages/flurlhttpwrapper/)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=cllyldrm_flurlhttp-wrapper&metric=alert_status)](https://sonarcloud.io/dashboard?id=cllyldrm_flurlhttp-wrapper)
 
 Custom wrapper for flurl http with polly circuit breaker. You can use on .net core projects.
 
@@ -10,7 +12,7 @@ Custom wrapper for flurl http with polly circuit breaker. You can use on .net co
 
 From the package manager console:
 
-	PM> Install-Package FlurlHttpWrapper
+	PM> Install-Package flurlhttpwrapper
   
 ### Using
 
