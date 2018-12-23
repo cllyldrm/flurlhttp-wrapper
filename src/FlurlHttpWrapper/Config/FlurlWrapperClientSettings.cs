@@ -1,6 +1,6 @@
 ﻿namespace FlurlHttpWrapper.Config
 {
-    public class RestClientSettings
+    public class FlurlWrapperClientSettings
     {
         public int PollyCircuitBreakExceptionCount { get; set; }
 

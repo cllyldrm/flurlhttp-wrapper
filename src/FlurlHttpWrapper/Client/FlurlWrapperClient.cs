@@ -1,4 +1,4 @@
-﻿namespace FlurlHttpWrapper
+﻿namespace FlurlHttpWrapper.Client
 {
     using System;
     using System.Threading.Tasks;
@@ -10,12 +10,12 @@
     using Polly;
     using Polly.CircuitBreaker;
 
-    public class RestClient : IRestClient
+    public class FlurlWrapperClient : IFlurlWrapperClient
     {
         private readonly IFlurlClient _client;
         private readonly CircuitBreakerPolicy _circuitBreaker;
 
-        public RestClient(IFlurlClientFactory clientFactory, IOptions<RestClientSettings> appSettings, string url)
+        public FlurlWrapperClient(IFlurlClientFactory clientFactory, IOptions<FlurlWrapperClientSettings> appSettings, string url)
         {
             _client = clientFactory.Get(url);
 

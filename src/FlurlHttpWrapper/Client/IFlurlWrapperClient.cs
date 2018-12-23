@@ -1,8 +1,8 @@
-﻿namespace FlurlHttpWrapper
+﻿namespace FlurlHttpWrapper.Client
 {
     using System.Threading.Tasks;
 
-    interface IRestClient
+    public interface IFlurlWrapperClient
     {
         Task<TModel> GetAsync<TModel>(string path)
             where TModel : new();

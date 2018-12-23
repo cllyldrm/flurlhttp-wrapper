@@ -21,17 +21,17 @@ First you have to add these configurations.
 ````c#
         public void ConfigureServices(IServiceCollection services)
         {
-            var settings = Configuration.GetSection("RestClientSettings");
-            services.Configure<RestClientSettings>(settings);
+            var flurlWrapperClientSettings = Configuration.GetSection("FlurlWrapperClientSettings");
+            services.Configure<FlurlWrapperClientSettings>(flurlWrapperClientSettings);
 
-            services.AddFlurlHttpWrapper();
+            services.AddFlurlWrapperClient();
         }
  ````
  
 RestClientSettings class is need for polly circuit breaker settings. You can implement in your appsettings like this.
  
     {
-        "RestClientSettings": {
+        "FlurlWrapperClientSettings": {
              "PollyCircuitBreakExceptionCount": 50,
              "PollyCircuitBreakDurationInSeconds": 10
         }
@@ -40,14 +40,14 @@ RestClientSettings class is need for polly circuit breaker settings. You can imp
 Now, you can start to create your clients.
  
  ````c#
-    public interface IElasticClient : IRestClient
+    public interface IElasticClient : IFlurlWrapperClient
     {
     }
     
-    public class ElasticClient : RestClient, IElasticClient
+    public class ElasticClient : FlurlWrapperClient, IElasticClient
     {
-        public ElasticClient(IFlurlClientFactory clientFactory, IOptions<RestClientSettings> restClientSettings)
-            : base(clientFactory, restClientSettings, "http://localhost:9200/")
+        public ElasticClient(IFlurlClientFactory clientFactory, IOptions<FlurlWrapperClientSettings> flurlWrapperClientSettings)
+            : base(clientFactory, flurlWrapperClientSettings, "http://localhost:9200/")
         {
         }
     }
